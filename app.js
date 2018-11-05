@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 
 const mongoose = require("mongoose");
-const postsRoutes= require('./posts/routes')
+
 mongoose
   .connect(
     "mongodb+srv://pb1646a:Omonoialaos20!@cluster0-t3noz.mongodb.net/node-angular?retryWrites=true"
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
   next();
 });
-app.use('/api/posts',postsRoutes)
+//app.use('/api/posts',postsRoutes)
 
 
 module.exports = app;
