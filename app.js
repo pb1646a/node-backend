@@ -1,12 +1,14 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-
 const mongoose = require("mongoose");
+const dbUrl = process.env.DB_URI;
 
 mongoose
   .connect(
-    "mongodb+srv://pb1646a:Omonoialaos20!@cluster0-t3noz.mongodb.net/node-angular?retryWrites=true"
+    dbUrl,
+    { useNewUrlParser: true }
   )
   .then(() => {
     console.log("connected to database!");
@@ -14,7 +16,6 @@ mongoose
   .catch(() => {
     console.log("connection failed");
   });
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -31,7 +32,6 @@ app.use((req, res, next) => {
 
   next();
 });
-//app.use('/api/posts',postsRoutes)
 
 
 module.exports = app;
