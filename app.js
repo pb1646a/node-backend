@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dbUrl = process.env.DB_URI;
+mongoose.set('useCreateIndex', true);
 
 mongoose
   .connect(
