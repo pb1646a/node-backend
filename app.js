@@ -1,4 +1,9 @@
-if (process.env.NODE_ENV !== 'production') require('dotenv').config()
+if (process.env.NODE_ENV !== 'production'){
+
+console.log('not prod');
+
+}
+
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
