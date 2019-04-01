@@ -1,20 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const dbUrl = process.env.DB_URI;
-mongoose.set('useCreateIndex', true);
-mongoose
-  .connect(
-    dbUrl,
-    { useNewUrlParser: true }
-  )
-  .then(() => {
-    console.log("connected to database!");
-  })
-  .catch(() => {
-    console.log("connection to the db failed");
-  });
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
